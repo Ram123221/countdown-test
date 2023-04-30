@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.container{
+    border: 3px solid;
+    margin: 3rem;
+    width: max-content;
+    /* position: relative; */
+}
+.container-deep{
+    width: 5rem;
+    height: 4rem;
+    position: relative;
+    overflow: hidden;
+    /* border: 1px solid red; */
+}
+.container-deep > span, .container-deep > .absolute{
+    position: absolute;
+    font-size: 7rem;
+    width: 100%;
+    height: 8rem;
+    line-height: 8rem;
+    text-align: center;
+}
+.container-deep:first-child > span{
+    background-color: white;
+    color: black;
+    left: 0;
+    top: 0;
+    transition: transform 250ms;
+    /* transform-origin: bottom; */
+}
+.container-deep:first-child > span.absolute{
+    transform: rotateX(0deg);
+}
+.container-deep:last-child > span{
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    color: white;
+    /* transition: transform 250ms 250ms; */
+}
+.container-deep:last-child > span.absolute{
+    transform: rotateX(-90deg);
+}
+/* .container-deep:first-child:after{
+    content: "8";
+}
+.container-deep:last-child::after{
+    content: "7";
+    transform: rotateX(-90deg);
+} */
+.rotate-0-first{
+    animation: rotate-0-first 250ms forwards;
+    animation-delay: 0ms;
+}
+.rotate-90-first{
+    animation: rotate-90-first 250ms forwards;
+    animation-delay: 250ms;
+}
+.container:hover .container-deep:first-child::after{
+    /* transform: rotateX(90deg) */
+}
+.container-deep:last-child::after{
+    /* transform: rotateX(-90deg); */
+}
+.container:hover .container-deep:last-child::after{
+    /* transform: rotateX(0deg); */
+}
+
+@keyframes rotate-0-first{
+    0%{
+        transform: rotateX(0deg);
+    }
+    100%{
+        transform: rotateX(-90deg);
+    }
+}
+@keyframes rotate-90-first{
+    0%{
+        transform: rotateX(-90deg);
+    }
+    100%{
+        transform: rotateX(0deg);
+    }
+}
